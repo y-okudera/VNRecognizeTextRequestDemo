@@ -18,6 +18,8 @@ final class ViewController: UIViewController {
         }
     }
     
+    private let loadingText = "解析中..."
+    
     lazy var textDetectionRequest: VNRecognizeTextRequest = {
         let request = VNRecognizeTextRequest(completionHandler: self.handleDetectedText)
         request.recognitionLevel = .fast
@@ -26,9 +28,9 @@ final class ViewController: UIViewController {
         return request
     }()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        showIndicatorAlert(message: loadingText)
         processImage()
     }
 }
@@ -77,6 +79,7 @@ extension ViewController {
         }
         
         DispatchQueue.main.async { [weak self] in
+            self?.hideIndicatorAlert()
             self?.textView.text = textSet
         }
     }

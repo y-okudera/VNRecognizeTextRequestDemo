@@ -15,6 +15,7 @@
 		64D455A7241B63F1007E4EA0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64D455A5241B63F1007E4EA0 /* LaunchScreen.storyboard */; };
 		64D455B2241B63F2007E4EA0 /* VNRecognizeTextRequestDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D455B1241B63F2007E4EA0 /* VNRecognizeTextRequestDemoTests.swift */; };
 		64D455BD241B63F2007E4EA0 /* VNRecognizeTextRequestDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D455BC241B63F2007E4EA0 /* VNRecognizeTextRequestDemoUITests.swift */; };
+		64D455CD241B6B7D007E4EA0 /* UIViewController+IndicatorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D455CC241B6B7D007E4EA0 /* UIViewController+IndicatorAlert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		64D455B8241B63F2007E4EA0 /* VNRecognizeTextRequestDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VNRecognizeTextRequestDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		64D455BC241B63F2007E4EA0 /* VNRecognizeTextRequestDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VNRecognizeTextRequestDemoUITests.swift; sourceTree = "<group>"; };
 		64D455BE241B63F2007E4EA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		64D455CC241B6B7D007E4EA0 /* UIViewController+IndicatorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+IndicatorAlert.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		64D45599241B63F0007E4EA0 /* VNRecognizeTextRequestDemo */ = {
 			isa = PBXGroup;
 			children = (
+				64D455CB241B6B65007E4EA0 /* Extensions */,
 				64D4559A241B63F0007E4EA0 /* AppDelegate.swift */,
 				64D4559C241B63F0007E4EA0 /* SceneDelegate.swift */,
 				64D4559E241B63F0007E4EA0 /* ViewController.swift */,
@@ -126,6 +129,14 @@
 				64D455BE241B63F2007E4EA0 /* Info.plist */,
 			);
 			path = VNRecognizeTextRequestDemoUITests;
+			sourceTree = "<group>";
+		};
+		64D455CB241B6B65007E4EA0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				64D455CC241B6B7D007E4EA0 /* UIViewController+IndicatorAlert.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,6 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				64D4559F241B63F0007E4EA0 /* ViewController.swift in Sources */,
+				64D455CD241B6B7D007E4EA0 /* UIViewController+IndicatorAlert.swift in Sources */,
 				64D4559B241B63F0007E4EA0 /* AppDelegate.swift in Sources */,
 				64D4559D241B63F0007E4EA0 /* SceneDelegate.swift in Sources */,
 			);
