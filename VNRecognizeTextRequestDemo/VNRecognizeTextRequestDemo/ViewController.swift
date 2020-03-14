@@ -21,6 +21,13 @@ final class ViewController: UIViewController {
     
     private var imagePicker: UIImagePickerController = UIImagePickerController()
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // VNRecognizeTextRequestがサポートしている言語をコンソールに出力する
+        ImageTextRecognizer.checkSupportedRecognitionLanguages()
+    }
+    
     private lazy var imageTextRecognizer: ImageTextRecognizer = {
         
         // ハンドラに文字列認識後の処理を定義

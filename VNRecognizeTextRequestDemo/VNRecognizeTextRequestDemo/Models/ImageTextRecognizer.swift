@@ -96,3 +96,19 @@ final class ImageTextRecognizer: NSObject {
         }
     }
 }
+
+extension ImageTextRecognizer {
+    
+    /// サポートしている言語をチェックする
+    static func checkSupportedRecognitionLanguages() {
+        do {
+            let supportedLanguagesForFast = try VNRecognizeTextRequest.supportedRecognitionLanguages(for: .fast, revision: VNRecognizeTextRequestRevision1)
+            print("supportedRecognitionLanguages fast:", supportedLanguagesForFast)
+            let supportedLanguagesForAccurate = try VNRecognizeTextRequest.supportedRecognitionLanguages(for: .accurate, revision: VNRecognizeTextRequestRevision1)
+            print("supportedRecognitionLanguages accurate:", supportedLanguagesForAccurate)
+            
+        } catch let error {
+            print("supportedRecognitionLanguages error", error)
+        }
+    }
+}
