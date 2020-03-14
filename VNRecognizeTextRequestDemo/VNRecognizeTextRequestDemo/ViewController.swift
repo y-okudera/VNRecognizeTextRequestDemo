@@ -7,80 +7,117 @@
 //
 
 import UIKit
-import Vision
 
 final class ViewController: UIViewController {
     
-    @IBOutlet private weak var textView: UITextView!
+    @IBOutlet private weak var textField: UITextField!
     @IBOutlet private weak var imageView: UIImageView! {
         didSet {
-            imageView.image = #imageLiteral(resourceName: "sample")
+            imageView.image = #imageLiteral(resourceName: "no_image")
         }
     }
     
-    private let loadingText = "解析中..."
+    private let loadingText = "Analyzing..."
     
-    lazy var textDetectionRequest: VNRecognizeTextRequest = {
-        let request = VNRecognizeTextRequest(completionHandler: self.handleDetectedText)
-        request.recognitionLevel = .fast
-        request.recognitionLanguages = ["en_US"]
-        request.usesLanguageCorrection = true
-        return request
+    private var imagePicker: UIImagePickerController = UIImagePickerController()
+    
+    private lazy var imageTextRecognizer: ImageTextRecognizer = {
+        
+        // ハンドラに文字列認識後の処理を定義
+        let imageTextRecognizer = ImageTextRecognizer { [weak self] results, error in
+            
+            guard let `self` = self else {
+                return
+            }
+            guard let textArray = results else {
+                if let imageTextRecognizerError = error {
+                    print(imageTextRecognizerError)
+                }
+                return
+            }
+            
+            // クレジットカード番号形式で絞り込む
+            let creditNumbers = textArray.filter { $0.isCreditNumber() }
+            print("creditNumbers", creditNumbers)
+            
+            self.textField.text = creditNumbers.first
+            self.hideIndicatorAlert()
+        }
+        return imageTextRecognizer
     }()
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        showIndicatorAlert(message: loadingText)
-        processImage()
+    @IBAction private func tappedCameraButton(_ sender: Any) {
+        
+        let actionSheet = UIAlertController(title: "Select", message: "Please take a credit card.", preferredStyle: .actionSheet)
+        actionSheet.addAction(
+            .init(title: "Camera", style: .default) { [weak self] _ in
+                self?.openCamera()
+            }
+        )
+        actionSheet.addAction(
+            .init(title: "PhotoLibrary", style: .default) { [weak self] _ in
+                self?.openPhotoLibrary()
+            }
+        )
+        actionSheet.addAction(
+            .init(title: "Cancel", style: .cancel)
+        )
+        self.present(actionSheet, animated: true)
     }
 }
 
 extension ViewController {
     
-    private func processImage() {
-        textView.text = ""
+    private func openCamera() {
+        guard UIImagePickerController.isSourceTypeAvailable(.camera) else {
+            print("Not available camera.")
+            return
+        }
+        imagePicker.sourceType = .camera
+        imagePicker.allowsEditing = true
+        imagePicker.delegate = self
+        present(imagePicker, animated: true)
+    }
+    
+    private func openPhotoLibrary() {
+        guard UIImagePickerController.isSourceTypeAvailable(.photoLibrary) else {
+            print("Not available photoLibrary.")
+            return
+        }
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.allowsEditing = true
+        imagePicker.delegate = self
+        present(imagePicker, animated: true)
+    }
+}
+
+// MARK: - UIImagePickerControllerDelegate
+extension ViewController: UIImagePickerControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        print(#function)
         
-        guard let cgImage = imageView.image?.cgImage else {
+        guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
+            print("image is nil.")
             return
         }
         
-        let requests = [textDetectionRequest]
-        let imageRequestHandler = VNImageRequestHandler(cgImage: cgImage)
-        
-        DispatchQueue.global(qos: .userInitiated).async {
-            do {
-                try imageRequestHandler.perform(requests)
-            } catch let error {
-                print("perform error", error)
+        picker.dismiss(animated: true) { [weak self] in
+            guard let `self` = self else {
+                return
             }
+            self.imageView.image = image
+            // インジケータを表示して、画像のテキスト解析する
+            self.showIndicatorAlert(message: self.loadingText)
+            self.imageTextRecognizer.analyze(cgImage: image.cgImage)
         }
     }
     
-    private func handleDetectedText(request: VNRequest?, error: Error?) {
-        if let error = error {
-            print("error", error)
-            return
-        }
-        
-        guard let results = request?.results, results.count > 0 else {
-            print("No text")
-            return
-        }
-        
-        var textSet = ""
-        
-        let candidates = 1
-        for result in results {
-            if let observation = result as? VNRecognizedTextObservation {
-                for text in observation.topCandidates(candidates) {
-                    textSet.append(text.string + "\n")
-                }
-            }
-        }
-        
-        DispatchQueue.main.async { [weak self] in
-            self?.hideIndicatorAlert()
-            self?.textView.text = textSet
-        }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        print(#function)
+        picker.dismiss(animated: true)
     }
 }
+
+extension ViewController: UINavigationControllerDelegate { }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		64244A03241CB87A008BE8CF /* ImageTextRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64244A02241CB87A008BE8CF /* ImageTextRecognizer.swift */; };
 		64D4559B241B63F0007E4EA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D4559A241B63F0007E4EA0 /* AppDelegate.swift */; };
 		64D4559D241B63F0007E4EA0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D4559C241B63F0007E4EA0 /* SceneDelegate.swift */; };
 		64D4559F241B63F0007E4EA0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D4559E241B63F0007E4EA0 /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 		64D455B2241B63F2007E4EA0 /* VNRecognizeTextRequestDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D455B1241B63F2007E4EA0 /* VNRecognizeTextRequestDemoTests.swift */; };
 		64D455BD241B63F2007E4EA0 /* VNRecognizeTextRequestDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D455BC241B63F2007E4EA0 /* VNRecognizeTextRequestDemoUITests.swift */; };
 		64D455CD241B6B7D007E4EA0 /* UIViewController+IndicatorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D455CC241B6B7D007E4EA0 /* UIViewController+IndicatorAlert.swift */; };
+		64D455D2241B7F1F007E4EA0 /* String+RegularExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D455D1241B7F1F007E4EA0 /* String+RegularExpression.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		64244A02241CB87A008BE8CF /* ImageTextRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTextRecognizer.swift; sourceTree = "<group>"; };
 		64D45597241B63F0007E4EA0 /* VNRecognizeTextRequestDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VNRecognizeTextRequestDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64D4559A241B63F0007E4EA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		64D4559C241B63F0007E4EA0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +54,7 @@
 		64D455BC241B63F2007E4EA0 /* VNRecognizeTextRequestDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VNRecognizeTextRequestDemoUITests.swift; sourceTree = "<group>"; };
 		64D455BE241B63F2007E4EA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		64D455CC241B6B7D007E4EA0 /* UIViewController+IndicatorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+IndicatorAlert.swift"; sourceTree = "<group>"; };
+		64D455D1241B7F1F007E4EA0 /* String+RegularExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+RegularExpression.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +82,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		64244A01241CB406008BE8CF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				64244A02241CB87A008BE8CF /* ImageTextRecognizer.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		64D4558E241B63F0007E4EA0 = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +113,7 @@
 		64D45599241B63F0007E4EA0 /* VNRecognizeTextRequestDemo */ = {
 			isa = PBXGroup;
 			children = (
+				64244A01241CB406008BE8CF /* Models */,
 				64D455CB241B6B65007E4EA0 /* Extensions */,
 				64D4559A241B63F0007E4EA0 /* AppDelegate.swift */,
 				64D4559C241B63F0007E4EA0 /* SceneDelegate.swift */,
@@ -135,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				64D455CC241B6B7D007E4EA0 /* UIViewController+IndicatorAlert.swift */,
+				64D455D1241B7F1F007E4EA0 /* String+RegularExpression.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -270,7 +284,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64244A03241CB87A008BE8CF /* ImageTextRecognizer.swift in Sources */,
 				64D4559F241B63F0007E4EA0 /* ViewController.swift in Sources */,
+				64D455D2241B7F1F007E4EA0 /* String+RegularExpression.swift in Sources */,
 				64D455CD241B6B7D007E4EA0 /* UIViewController+IndicatorAlert.swift in Sources */,
 				64D4559B241B63F0007E4EA0 /* AppDelegate.swift in Sources */,
 				64D4559D241B63F0007E4EA0 /* SceneDelegate.swift in Sources */,
