@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		64244A03241CB87A008BE8CF /* ImageTextRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64244A02241CB87A008BE8CF /* ImageTextRecognizer.swift */; };
+		64244A09241CE633008BE8CF /* ImageTextRecognizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64244A08241CE633008BE8CF /* ImageTextRecognizerTests.swift */; };
 		64D4559B241B63F0007E4EA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D4559A241B63F0007E4EA0 /* AppDelegate.swift */; };
 		64D4559D241B63F0007E4EA0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D4559C241B63F0007E4EA0 /* SceneDelegate.swift */; };
 		64D4559F241B63F0007E4EA0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D4559E241B63F0007E4EA0 /* ViewController.swift */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		64244A02241CB87A008BE8CF /* ImageTextRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTextRecognizer.swift; sourceTree = "<group>"; };
+		64244A08241CE633008BE8CF /* ImageTextRecognizerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTextRecognizerTests.swift; sourceTree = "<group>"; };
 		64D45597241B63F0007E4EA0 /* VNRecognizeTextRequestDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VNRecognizeTextRequestDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64D4559A241B63F0007E4EA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		64D4559C241B63F0007E4EA0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 			children = (
 				64D455B1241B63F2007E4EA0 /* VNRecognizeTextRequestDemoTests.swift */,
 				64D455B3241B63F2007E4EA0 /* Info.plist */,
+				64244A08241CE633008BE8CF /* ImageTextRecognizerTests.swift */,
 			);
 			path = VNRecognizeTextRequestDemoTests;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64244A09241CE633008BE8CF /* ImageTextRecognizerTests.swift in Sources */,
 				64D455B2241B63F2007E4EA0 /* VNRecognizeTextRequestDemoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
